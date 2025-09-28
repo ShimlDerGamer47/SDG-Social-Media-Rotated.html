@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const params = new URLSearchParams(window.location.search);
 
+    const address = params.get("address") || "127.0.0.1";
+    const port = parseInt(params.get("port") || "8080", 10);
+    const password = params.get("password") || "";
+
     function parseBoolParam(name, defaultVal) {
       if (!params.has(name)) return defaultVal;
       const v = (params.get(name) || "").trim().toLowerCase();
@@ -22,11 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return Number.isFinite(v) ? v : defaultVal;
     }
 
-    const AUTO_START = parseBoolParam("autostart", true);
+    const AUTO_START = parseBoolParam(
+      "autostart",
+      parseBoolParam("autoplay", true)
+    );
     const initialDelayMinutes = Math.max(0, parseNumberParam("delay", 10));
 
     const MINUTES_TO_MS = 60 * 1000;
     const INITIAL_DELAY_MS = Math.round(initialDelayMinutes * MINUTES_TO_MS);
+
+    const startAtParam =
+      params.get("startAt") || params.get("startAtMs") || null;
+    const START_AT_MS = startAtParam ? parseInt(startAtParam, 10) : 0;
 
     console.log(
       "Gib das in die URL dazu ein.\nZusatz URL:\n'/?autoplay= ', ' true ' oder ' false '\n" +
@@ -607,9 +618,26 @@ document.addEventListener("DOMContentLoaded", () => {
     window.__socialRotator = { start, stop, restart };
 
     if (AUTO_START) {
-      setTimeout(() => {
-        start();
-      }, INITIAL_DELAY_MS);
+      if (START_AT_MS && START_AT_MS > 0) {
+        const now = Date.now();
+        const waitMs = Math.max(0, START_AT_MS - now);
+        console.log(
+          "Geplanter synchroner Start in ms:",
+          waitMs,
+          " (startAt=",
+          START_AT_MS,
+          ")"
+        );
+        if (waitMs > 0) {
+          setTimeout(() => start(), waitMs);
+        } else {
+          start();
+        }
+      } else {
+        setTimeout(() => {
+          start();
+        }, INITIAL_DELAY_MS);
+      }
     }
 
     console.log(
