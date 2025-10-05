@@ -75,13 +75,15 @@ body::-webkit-scrollbar {
   justify-items: center;
   justify-content: center;
   border: var(--border);
-  padding: var(--padding-block-inline);
-  margin: var(--margin-top-left-bottom-right);
+  border-radius: 50%;
+  padding: 0px 0px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   pointer-events: none;
   z-index: 6;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .discord-img-slide-in {
@@ -135,13 +137,15 @@ body::-webkit-scrollbar {
   justify-items: center;
   justify-content: center;
   border: var(--border);
-  padding: var(--padding-block-inline);
-  margin: var(--margin-top-left-bottom-right);
+  border-radius: 50%;
+  padding: 0px 0px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   pointer-events: none;
   z-index: 5;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .spotify-img-container {
@@ -178,13 +182,15 @@ body::-webkit-scrollbar {
   justify-items: center;
   justify-content: center;
   border: var(--border);
-  padding: var(--padding-block-inline);
-  margin: var(--margin-top-left-bottom-right);
+  border-radius: 50%;
+  padding: 0px 0px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   pointer-events: none;
   z-index: 4;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .twitch-img-container {
@@ -221,13 +227,15 @@ body::-webkit-scrollbar {
   justify-items: center;
   justify-content: center;
   border: var(--border);
-  padding: var(--padding-block-inline);
-  margin: var(--margin-top-left-bottom-right);
+  border-radius: 50%;
+  padding: 0px 0px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   pointer-events: none;
   z-index: 3;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .twitter-img-container {
@@ -264,13 +272,15 @@ body::-webkit-scrollbar {
   justify-items: center;
   justify-content: center;
   border: var(--border);
-  padding: var(--padding-block-inline);
-  margin: var(--margin-top-left-bottom-right);
+  border-radius: 50%;
+  padding: 0px 0px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   pointer-events: none;
   z-index: 2;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .youtube-img-container {
@@ -307,13 +317,15 @@ body::-webkit-scrollbar {
   justify-items: center;
   justify-content: center;
   border: var(--border);
-  padding: var(--padding-block-inline);
-  margin: var(--margin-top-left-bottom-right);
+  border-radius: 50%;
+  padding: 0px 0px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
   pointer-events: none;
   z-index: 1;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .youtube-img-slide-out {
